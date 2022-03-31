@@ -17,6 +17,10 @@ const Bold = ({ text }: TextFormattingPropTypes) => {
   return <strong style={{ color: "#feff00" }}>{text}</strong>;
 };
 
+const Bold2 = ({ text }: TextFormattingPropTypes) => {
+  return <strong style={{ color: "#7af5be" }}>{text}</strong>;
+};
+
 export default function Header() {
   return (
     <>
@@ -49,11 +53,11 @@ export default function Header() {
           <Toolbar>
             <Typography variant="body2">
               The goal is to automate the tedious task of converting{" "}
-              <Code text={".tfstate"} /> to <Code text={".tf"} /> files. No tool
-              can 100% streamline the task of importing existing cloud
-              infastructure to valid terraform code.
-              <br /> This tool assists by producing the correct formatting. Thus
-              it is <Bold text={`"terraformish"`} />
+              <Code text={".tfstate"} /> to <Code text={".tf"} /> files.{" "}
+              <Bold2 text={"Not even Terraform itself supports this! "} />
+              That shouldn't stop us from a tool with{" "}
+              <Bold2 text={" partial "} />
+              automation. This is <Bold text={`"Terraformish."`} />
             </Typography>
           </Toolbar>
         </AppBar>
