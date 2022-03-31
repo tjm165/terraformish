@@ -1,6 +1,6 @@
 import React from "react";
 import { convertTfStateToTf } from "../functions/convertTfStateToTf";
-import { CopyBlock, dracula } from "react-code-blocks";
+import { CopyBlock, vs2015 } from "react-code-blocks";
 type PropTypes = {
   tfState: string;
 };
@@ -24,7 +24,7 @@ const Tf = ({ tfState }: PropTypes) => {
         showLineNumbers={true}
         startingLineNumber={1}
         wrapLines
-        theme={dracula}
+        theme={vs2015}
       />
     </>
   );

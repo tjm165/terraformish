@@ -6,7 +6,8 @@ import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Select from "@mui/material/Select";
+import { CopyBlock, vs2015 } from "react-code-blocks";
 
 const TfGenerator = () => {
   const [value, setValue] = useState(samples.lambda);
@@ -38,7 +39,6 @@ const TfGenerator = () => {
               >
                 .tfstate
               </div>
-
               <Box sx={{ minWidth: 120 }}>
                 <FormControl fullWidth>
                   <InputLabel id="demo-simple-select-label">
@@ -58,9 +58,11 @@ const TfGenerator = () => {
               </Box>
             </div>
           </Typography>
+          <CopyBlock text={value.import} language={"shell"} theme={vs2015} />
+
           <textarea
             className="terraformInput"
-            value={value}
+            value={value.tfState}
             onChange={handleValueChange}
           />
         </div>
@@ -80,7 +82,7 @@ const TfGenerator = () => {
             </div>
           </Typography>
 
-          <Tf tfState={value} />
+          <Tf tfState={value.tfState} />
         </div>
       </div>
     </div>

@@ -5,12 +5,16 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
-type CodePropTypes = {
-  code: string;
+type TextFormattingPropTypes = {
+  text: string;
 };
 
-const Code = ({ code }: CodePropTypes) => {
-  return <code style={{ color: "#7af5be" }}>{code}</code>;
+const Code = ({ text }: TextFormattingPropTypes) => {
+  return <code style={{ color: "#7af5be" }}>{text}</code>;
+};
+
+const Bold = ({ text }: TextFormattingPropTypes) => {
+  return <strong style={{ color: "#FFF069" }}>{text}</strong>;
 };
 
 export default function Header() {
@@ -34,12 +38,11 @@ export default function Header() {
           <Toolbar>
             <Typography variant="body2">
               The goal is to automate the tedious task of converting{" "}
-              <Code code={".tfstate"} /> to
-              <Code code={".tf"} /> files. While only{" "}
-              <Code code={"terraform apply"} /> can determine if a
-              <Code code={".tf"} /> file is truly valid, this automatition
-              assists by producing the correct formatting. Thus it is{" "}
-              <strong style={{ color: "#FFF069" }}>"terraformish"</strong>.
+              <Code text={".tfstate"} /> to <Code text={".tf"} /> files. No tool
+              can 100% streamline the task of importing existing cloud
+              infastructure to valid terraform code.
+              <br /> This tool assists by producing the correct formatting. Thus
+              it is <Bold text={`"terraformish"`} />
             </Typography>
           </Toolbar>
         </AppBar>
