@@ -14,7 +14,7 @@ const Code = ({ text }: TextFormattingPropTypes) => {
 };
 
 const Bold = ({ text }: TextFormattingPropTypes) => {
-  return <strong style={{ color: "#FFF069" }}>{text}</strong>;
+  return <strong style={{ color: "#feff00" }}>{text}</strong>;
 };
 
 export default function Header() {
