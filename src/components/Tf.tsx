@@ -1,6 +1,6 @@
 import React from "react";
 import { convertTfStateToTf } from "../functions/convertTfStateToTf";
-import { CopyBlock, dracula } from "react-code-blocks";
+import { CopyBlock, vs2015 } from "react-code-blocks";
 type PropTypes = {
   tfState: string;
 };
@@ -18,14 +18,16 @@ const Tf = ({ tfState }: PropTypes) => {
   const jsonState = tryToConvert(tfState);
   return (
     <>
-      <CopyBlock
-        text={jsonState}
-        language={"javascript"}
-        showLineNumbers={true}
-        startingLineNumber={1}
-        wrapLines
-        theme={dracula}
-      />
+      <div className="terraformOutput">
+        <CopyBlock
+          text={jsonState}
+          language={"javascript"}
+          showLineNumbers={true}
+          startingLineNumber={1}
+          wrapLines
+          theme={vs2015}
+        />
+      </div>
     </>
   );
 };
