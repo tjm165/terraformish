@@ -1,31 +1,47 @@
 import { Instance, TfState, Attribute } from "../types";
 
 export const convertTfStateToTf = (tfState: TfState) => {
-  const tfInstance = convertInstance(tfState.instances[0]);
+  const instance = tfState.instances[0];
+  const tfInstance = convertInstance(instance);
 
-  const TfString = `resource "${tfState.type}" " ${tfState.name} {${tfInstance}}"`;
+  const tfString =
+    `resource "${tfState.type}" " ${tfState.name} {` +
+    "\n" +
+    `
+  ${tfInstance}` +
+    "\n" +
+    `}`;
 
-  return TfString;
+  console.log(tfString);
+  return tfString;
 };
 
 const convertInstance = (instance: Instance) => {
-  let attributesTf = "";
   const attributes = instance.attributes;
-  Object.keys(attributes).forEach((key) => {
-    //@ts-ignore
-    const attribute: Attribute = attributes[key];
-
-    attributesTf = attributesTf.concat(
-      convertInstanceAttribute(key, attribute)
-    );
-  });
-  console.log(attributesTf);
-  return attributesTf;
+  return convertDictToTf(attributes);
 };
 
-const convertInstanceAttribute = (
-  key: string,
-  attribute: Attribute
-): string => {
-  return `${key} = "${attribute}"`;
+const convertDictToTf = (dict: Map<string, any>) => {
+  let string = "";
+
+  Object.keys(dict).forEach((key) => {
+    //@ts-ignore
+    const value = dict[key];
+    string = string.concat(convertKeyValueToTf(key, value) + " \n");
+  });
+
+  return string;
+};
+
+const convertKeyValueToTf = (key: string, value: any) => {
+  if (value === null) {
+    return `${key} = null`;
+  }
+  if (typeof value === "string") {
+    return `${key} = "${value}"`;
+  }
+  if (value instanceof Number) {
+    return `${key} = ${value}`;
+  }
+  return `${key} = ${convertDictToTf(value)}`;
 };
