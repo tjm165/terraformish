@@ -6,7 +6,6 @@ export const convertTfStateToTf = (tfState: TfState) => {
 
   const tfString =
     `resource "${tfState.type}" " ${tfState.name} {` +
-    "\n" +
     `
   ${tfInstance}` +
     "\n" +
@@ -24,16 +23,27 @@ const convertInstance = (instance: Instance) => {
 const convertDictToTf = (dict: Map<string, any>) => {
   let string = "";
 
-  Object.keys(dict).forEach((key) => {
+  Object.keys(dict).forEach((key, i) => {
     //@ts-ignore
     const value = dict[key];
-    string = string.concat("    " + convertKeyValueToTf(key, value) + "\n");
+
+    if (i === 0) {
+      string = string.concat(`    ` + convertKeyValueToTf(key, value));
+    } else {
+      string = string.concat(`\n    ` + convertKeyValueToTf(key, value));
+    }
   });
 
   return string;
 };
 
 const convertKeyValueToTf = (key: string, value: any) => {
+  if (value === true) {
+    return `${key} = true`;
+  }
+  if (value === false) {
+    return `${key} = false`;
+  }
   if (value === null) {
     return `${key} = null`;
   }
