@@ -1,6 +1,6 @@
 import React from "react";
 import { convertTfStateToTf } from "../functions/convertTfStateToTf";
-
+import { CopyBlock, dracula } from "react-code-blocks";
 type PropTypes = {
   tfState: string;
 };
@@ -16,7 +16,18 @@ const tryToConvert = (string: string) => {
 
 const Tf = ({ tfState }: PropTypes) => {
   const jsonState = tryToConvert(tfState);
-  return <code>{JSON.stringify(jsonState)}</code>;
+  return (
+    <>
+      <CopyBlock
+        text={jsonState}
+        language={"javascript"}
+        showLineNumbers={true}
+        startingLineNumber={1}
+        wrapLines
+        theme={dracula}
+      />
+    </>
+  );
 };
 
 export default Tf;

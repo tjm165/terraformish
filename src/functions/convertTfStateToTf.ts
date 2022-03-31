@@ -27,7 +27,7 @@ const convertDictToTf = (dict: Map<string, any>) => {
   Object.keys(dict).forEach((key) => {
     //@ts-ignore
     const value = dict[key];
-    string = string.concat(convertKeyValueToTf(key, value) + " \n");
+    string = string.concat("    " + convertKeyValueToTf(key, value) + "\n");
   });
 
   return string;
@@ -42,6 +42,9 @@ const convertKeyValueToTf = (key: string, value: any) => {
   }
   if (value instanceof Number) {
     return `${key} = ${value}`;
+  }
+  if (value instanceof Array) {
+    return `${key} = ARRAY NOT SUPPORTED YET`;
   }
   return `${key} = ${convertDictToTf(value)}`;
 };
