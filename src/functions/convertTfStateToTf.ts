@@ -4,7 +4,7 @@ export const convertTfStateToTf = (tfState: TfState) => {
   const instance = tfState.instances[0];
   const tfInstance = convertInstance(instance);
 
-  const tfString = `resource "${tfState.type}" " ${tfState.name} {${tfInstance}\n}`;
+  const tfString = `resource "${tfState.type}" "${tfState.name}" {${tfInstance}\n}`;
   return tfString;
 };
 
