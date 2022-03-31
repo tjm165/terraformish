@@ -1,3 +1,7 @@
+html {
+  background-image: linear-gradient(to left, #a37bcc, #663993);
+}
+
 .terraformInput {
   width: 100%;
   height: 500px;
@@ -6,11 +10,6 @@
 .sc-gsnTZi {
   width: 100%;
   height: 500px;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {

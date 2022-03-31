@@ -11,7 +11,6 @@ const TfGenerator = () => {
 
   return (
     <div>
-      <h1>Terraform Generator</h1>
       <div style={{ display: "flex" }}>
         <textarea
           className="terraformInput"
