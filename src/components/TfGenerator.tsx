@@ -12,12 +12,20 @@ const TfGenerator = () => {
   return (
     <div>
       <div style={{ display: "flex" }}>
-        <textarea
-          className="terraformInput"
-          value={value}
-          onChange={handleValueChange}
-        />
-        <Tf tfState={value} />
+        <div className="fullWidth">
+          <h2>.tfstate</h2>
+          <textarea
+            className="terraformInput"
+            value={value}
+            onChange={handleValueChange}
+          />
+        </div>
+
+        <div className="fullWidth">
+          <h2>.tf</h2>
+
+          <Tf tfState={value} />
+        </div>
       </div>
     </div>
   );

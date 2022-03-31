@@ -13,7 +13,7 @@ const Code = ({ code }: CodePropTypes) => {
   return <code style={{ backgroundColor: "#f7f0ff" }}>{code}</code>;
 };
 
-export default function NavBar() {
+export default function Header() {
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
@@ -34,17 +34,13 @@ export default function NavBar() {
         </AppBar>
       </Box>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-          <Toolbar>
-            The goal is to automate the tedious task of converting{" "}
-            <Code code={".tfstate"} /> to
-            <Code code={".tf"} /> files. While only{" "}
-            <Code code={"terraform apply"} /> can determine if a
-            <Code code={".tf"} /> file is truly valid, this automatition assists
-            by producing the correct formatting. Thus it is{" "}
-            <strong>"terraformish"</strong>.
-          </Toolbar>
-        </AppBar>
+        The goal is to automate the tedious task of converting{" "}
+        <Code code={".tfstate"} /> to
+        <Code code={".tf"} /> files. While only{" "}
+        <Code code={"terraform apply"} /> can determine if a
+        <Code code={".tf"} /> file is truly valid, this automatition assists by
+        producing the correct formatting. Thus it is{" "}
+        <strong>"terraformish"</strong>.
       </Box>
     </>
   );

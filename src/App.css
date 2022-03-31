@@ -2,6 +2,10 @@ html {
   background-image: linear-gradient(to left, #a37bcc, #663993);
 }
 
+.fullWidth {
+  width: 100%;
+}
+
 .terraformInput {
   width: 100%;
   height: 500px;

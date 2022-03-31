@@ -2,12 +2,12 @@ import React from "react";
 import logo from "./logo.svg";
 import { TfGenerator } from "./components";
 import "./App.css";
-import { NavBar } from "./components/static";
+import { Header } from "./components/static";
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
+      <Header />
       <TfGenerator />
     </div>
   );
