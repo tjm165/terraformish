@@ -8,6 +8,7 @@ html {
 
 .Full-width {
   width: 100%;
+  height: 500px;
 }
 
 .terraformInput {

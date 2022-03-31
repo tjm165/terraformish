@@ -29,7 +29,13 @@ const TfGenerator = () => {
         <div className="Full-width">
           <Typography color="white" variant="h4">
             <div style={{ display: "flex" }}>
-              <div style={{ paddingLeft: "12px", paddingRight: "24px" }}>
+              <div
+                style={{
+                  paddingLeft: "12px",
+                  paddingRight: "24px",
+                  height: "64px",
+                }}
+              >
                 .tfstate
               </div>
 
@@ -62,7 +68,13 @@ const TfGenerator = () => {
         <div className="Full-width">
           <Typography color="white" variant="h4">
             <div style={{ display: "flex" }}>
-              <div style={{ paddingLeft: "12px", paddingRight: "24px" }}>
+              <div
+                style={{
+                  paddingLeft: "12px",
+                  paddingRight: "24px",
+                  height: "64px",
+                }}
+              >
                 .tf
               </div>
             </div>
