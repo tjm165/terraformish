@@ -39,7 +39,7 @@ const convertKeyValueToTf = (key: string, value: any) => {
   if (typeof value === "string") {
     return `${key} = "${value}"`;
   }
-  if (value instanceof Number) {
+  if (typeof value === "number") {
     return `${key} = ${value}`;
   }
   if (value instanceof Array) {

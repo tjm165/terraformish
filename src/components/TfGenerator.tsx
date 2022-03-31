@@ -4,7 +4,7 @@ import samples from "./samples";
 import Typography from "@mui/material/Typography";
 
 const TfGenerator = () => {
-  const [value, setValue] = useState(samples.s3);
+  const [value, setValue] = useState(samples.lambda);
 
   const handleValueChange = (e: any) => {
     setValue(e.target.value);
