@@ -75,7 +75,7 @@ function LeftColumn(
           </Box>
         </div>
       </Typography>
-      <CopyBlock text={value.import} language={"shell"} theme={vs2015} />
+      {/* <CopyBlock text={value.import} language={"shell"} theme={vs2015} /> */}
 
       <textarea
         className="terraformInput"

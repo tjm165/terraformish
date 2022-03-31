@@ -23,6 +23,17 @@ export default function Header() {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" className="Primary-header">
           <Toolbar>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+            >
+              <img
+                height="50px"
+                src={window.origin + "/terraformish/logo.png"}
+              />
+            </Typography>
             <Typography variant="h4" sx={{ flexGrow: 1 }}>
               Terraformish
             </Typography>
