@@ -18,14 +18,16 @@ const Tf = ({ tfState }: PropTypes) => {
   const jsonState = tryToConvert(tfState);
   return (
     <>
-      <CopyBlock
-        text={jsonState}
-        language={"javascript"}
-        showLineNumbers={true}
-        startingLineNumber={1}
-        wrapLines
-        theme={vs2015}
-      />
+      <div className="terraformOutput">
+        <CopyBlock
+          text={jsonState}
+          language={"javascript"}
+          showLineNumbers={true}
+          startingLineNumber={1}
+          wrapLines
+          theme={vs2015}
+        />
+      </div>
     </>
   );
 };
