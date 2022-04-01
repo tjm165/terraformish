@@ -3,10 +3,12 @@ import { convertTfStateToTf } from "../functions/convertTfStateToTf";
 import { CopyBlock, vs2015 } from "react-code-blocks";
 import { counterKey, incrementCount } from "../functions/count";
 import samples from "./samples";
+import { v4 as uuid } from "uuid";
 
 type PropTypes = {
   tfState: string;
   similarity: number;
+  setShouldRefetch: any;
 };
 
 const tryToConvert = (string: string) => {
@@ -18,7 +20,7 @@ const tryToConvert = (string: string) => {
   }
 };
 
-const Tf = ({ tfState, similarity }: PropTypes) => {
+const Tf = ({ tfState, similarity, setShouldRefetch }: PropTypes) => {
   useEffect(() => {
     const newJsonState = tryToConvert(tfState);
     setJsonState(newJsonState);
@@ -33,6 +35,7 @@ const Tf = ({ tfState, similarity }: PropTypes) => {
     const isNotS3Sample = tfState !== samples.s3;
     if (isNotAnError && isNotSimilar && isNotLambdaSample && isNotS3Sample) {
       runFetch();
+      setShouldRefetch(uuid());
     }
   }, [tfState]);
 

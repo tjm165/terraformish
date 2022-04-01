@@ -22,7 +22,11 @@ const Bold2 = ({ text }: TextFormattingPropTypes) => {
   return <strong style={{ color: "#7af5be" }}>{text}</strong>;
 };
 
-export default function Header() {
+type PropTypes = {
+  shouldRefetch: string;
+};
+
+export default function Header({ shouldRefetch }: PropTypes) {
   const [pageCount, setPageCount] = useState(0);
 
   useEffect(() => {
@@ -32,7 +36,7 @@ export default function Header() {
       setPageCount(json.value);
     }
     runFetch();
-  }, []);
+  }, [shouldRefetch]);
 
   return (
     <>

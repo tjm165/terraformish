@@ -9,7 +9,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import similarity from "../functions/strinigSimilarity";
 
-const TfGenerator = () => {
+const TfGenerator = ({ setShouldRefetch }: any) => {
   const [value, setValue] = useState(samples.lambda);
   const [valueSimiliarity, setValueSimilarity] = useState(100); // how similar is the last change?
 
@@ -90,7 +90,11 @@ const TfGenerator = () => {
               </div>
             </Typography>
 
-            <Tf tfState={value} similarity={valueSimiliarity} />
+            <Tf
+              tfState={value}
+              similarity={valueSimiliarity}
+              setShouldRefetch={setShouldRefetch}
+            />
           </>
         </div>
       </div>
