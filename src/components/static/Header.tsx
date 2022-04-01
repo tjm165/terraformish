@@ -53,8 +53,12 @@ export default function Header() {
             <Typography variant="h4" sx={{ flexGrow: 1 }}>
               Terraformish
             </Typography>
-            <Typography component="p">
-              Converted {pageCount} tfstates
+            <Typography variant="subtitle2">
+              {pageCount && (
+                <>
+                  <Bold2 text={`Converted ${pageCount} tfstates`} />
+                </>
+              )}
             </Typography>
             <Button
               color="inherit"

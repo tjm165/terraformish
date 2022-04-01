@@ -7,12 +7,18 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import similarity from "../functions/strinigSimilarity";
 
 const TfGenerator = () => {
   const [value, setValue] = useState(samples.lambda);
+  const [valueSimiliarity, setValueSimilarity] = useState(100); // how similar is the last change?
 
   const handleValueChange = (e: any) => {
-    setValue(e.target.value);
+    const currentValue = e.target.value;
+    const pastValue = value;
+
+    setValueSimilarity(similarity(currentValue, pastValue));
+    setValue(currentValue);
   };
 
   const [sample, setSample] = useState("lambda");
@@ -84,7 +90,7 @@ const TfGenerator = () => {
               </div>
             </Typography>
 
-            <Tf tfState={value} />
+            <Tf tfState={value} similarity={valueSimiliarity} />
           </>
         </div>
       </div>
