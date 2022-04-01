@@ -23,7 +23,7 @@ const Bold2 = ({ text }: TextFormattingPropTypes) => {
 };
 
 export default function Header() {
-  const [pageCount, setPageCount] = useState(null);
+  const [pageCount, setPageCount] = useState(0);
 
   useEffect(() => {
     async function runFetch() {
@@ -54,7 +54,7 @@ export default function Header() {
               Terraformish
             </Typography>
             <Typography variant="subtitle2">
-              {pageCount && (
+              {pageCount > 0 && (
                 <>
                   <Bold2 text={`Converted ${pageCount} tfstates`} />
                 </>
