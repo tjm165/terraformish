@@ -22,6 +22,12 @@ const counterConfigs: CounterConfigs = {
       key: "38843498-3bf9-4e7e-b286-4984c9879186",
     },
   },
+  "https://tjm165.github.io/terraformish": {
+    HOMEPAGE_VIEWS: {
+      namespace: "terraformish-prod",
+      key: "e011ac84-744e-40aa-abc5-9041e6565c53",
+    },
+  },
 };
 
 const getCounter = (counterKey: counterKey) => {
