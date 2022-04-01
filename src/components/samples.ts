@@ -1,7 +1,4 @@
-const s3 = {
-  import:
-    "terraform import aws_s3_bucket.my_s3_bucket_name bucket-name-in-cloud",
-  tfState: `{
+const s3 = `{
   "type": "aws_s3_bucket",
   "name": "my_s3_bucket",
   "provider": "provider[\\"registry.terraform.io/hashicorp/aws\\"]",
@@ -14,13 +11,9 @@ const s3 = {
     }
   ]
 }
-`,
-};
+`;
 
-const lambda = {
-  import:
-    "terraform import aws_lambda_function.my_lambda_function lambda-name-in-cloud",
-  tfState: `{
+const lambda = `{
     "mode": "managed",
     "type": "aws_lambda_function",
     "name": "my_lambda_function",
@@ -46,7 +39,6 @@ const lambda = {
       }
     ]
   }
-  `,
-};
+  `;
 
 export default { s3, lambda };

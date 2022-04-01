@@ -1,9 +1,10 @@
-import * as React from "react";
+import { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { readCount, counterKey } from "../../functions/count";
 
 type TextFormattingPropTypes = {
   text: string;
@@ -22,6 +23,17 @@ const Bold2 = ({ text }: TextFormattingPropTypes) => {
 };
 
 export default function Header() {
+  const [pageCount, setPageCount] = useState(null);
+
+  useEffect(() => {
+    async function runFetch() {
+      const resp = await readCount(counterKey.HOMEPAGE_VIEWS);
+      const json = await resp.json();
+      setPageCount(json.value);
+    }
+    runFetch();
+  }, []);
+
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
@@ -40,6 +52,9 @@ export default function Header() {
             </Typography>
             <Typography variant="h4" sx={{ flexGrow: 1 }}>
               Terraformish
+            </Typography>
+            <Typography component="p">
+              Converted {pageCount} tfstates
             </Typography>
             <Button
               color="inherit"
