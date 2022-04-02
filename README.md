@@ -1,4 +1,9 @@
-[Terraformish UI https://tjm165.github.io/terraformish](https://tjm165.github.io/terraformish)
+# Hosting
+
+Hosted on AWS Amplify
+
+- [PROD](https://master.d330gurt4y4vlq.amplifyapp.com/)
+- [DEV](https://dev.d330gurt4y4vlq.amplifyapp.com/)
 
 # Goal
 
