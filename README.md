@@ -2,7 +2,7 @@
 
 Hosted on AWS Amplify
 
-- [PROD](https://master.d330gurt4y4vlq.amplifyapp.com/)
+- [PROD: https://tinyurl.com/terraformish](https://tinyurl.com/terraformish)
 - [DEV](https://dev.d330gurt4y4vlq.amplifyapp.com/)
 
 # Goal
