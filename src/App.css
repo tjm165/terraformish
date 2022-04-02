@@ -1,24 +1,10 @@
-.Primary-header {
-  padding-top: 6px;
-  background-image: linear-gradient(to left, #7700ff, #000000);
+.App {
+  text-align: center;
 }
 
-html {
-  background-image: linear-gradient(to left, #9b43ff, #9b43ff);
-}
-
-.Full-width {
-  width: 100%;
-}
-
-.terraformInput {
-  width: 100%;
-  height: 100vh;
-}
-
-.terraformOutput > .sc-gsnTZi {
-  width: 100%;
-  height: 100vh;
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
