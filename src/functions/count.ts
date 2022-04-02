@@ -6,38 +6,18 @@ type Counter = {
 };
 
 type CounterConfig = {
-  HOMEPAGE_VIEWS: Counter;
+  SUCCESS_COUNT: Counter;
 };
 
-const counterConfigs: CounterConfigs = {
-  "http://localhost:3000": {
-    HOMEPAGE_VIEWS: {
-      namespace: "terraformish-dev",
-      key: "38843498-3bf9-4e7e-b286-4984c9879186",
-    },
-  },
-  "http://localhost:3000/terraformish": {
-    HOMEPAGE_VIEWS: {
-      namespace: "terraformish-dev",
-      key: "38843498-3bf9-4e7e-b286-4984c9879186",
-    },
-  },
-  "https://tjm165.github.io/terraformish": {
-    HOMEPAGE_VIEWS: {
-      namespace: "terraformish-prod",
-      key: "e011ac84-744e-40aa-abc5-9041e6565c53",
-    },
-  },
-};
-
-const getCounter = (counterKey: counterKey) => {
-  const href = window.location.href.replace(/\/$/, "");
-  const counterConfig = counterConfigs[href];
-  return counterConfig[counterKey];
+const getCounter = (counterKey: counterKey): Counter => {
+  const key = process.env[`REACT_APP_${counterKey}_KEY`] || "undefined";
+  const namespace =
+    process.env[`REACT_APP_${counterKey}_NAMESPACE`] || "undefined";
+  return { namespace, key };
 };
 
 export enum counterKey {
-  HOMEPAGE_VIEWS = "HOMEPAGE_VIEWS",
+  SUCCESS_COUNT = "SUCCESS_COUNT",
 }
 
 export async function incrementCount(counterKey: counterKey) {
