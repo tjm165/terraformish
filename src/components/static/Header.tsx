@@ -49,10 +49,7 @@ export default function Header({ shouldRefetch }: PropTypes) {
               component="div"
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              <img
-                height="50px"
-                src={window.origin + "/terraformish/logo.png"}
-              />
+              <img height="50px" src={window.origin + "/logo.png"} />
             </Typography>
             <Typography variant="h4" sx={{ flexGrow: 1 }}>
               Terraformish
