@@ -27,7 +27,7 @@ const Tf = ({ tfState, similarity, setShouldRefetch }: PropTypes) => {
 
     async function runFetch() {
       console.log(`Similiarity is ${similarity} : increrment count`);
-      const _ = await incrementCount(counterKey.HOMEPAGE_VIEWS);
+      const _ = await incrementCount(counterKey.SUCCESS_COUNT);
     }
     const isNotAnError = !newJsonState.startsWith("Unexpected");
     const isNotSimilar = similarity < 0.9;

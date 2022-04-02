@@ -31,7 +31,7 @@ export default function Header({ shouldRefetch }: PropTypes) {
 
   useEffect(() => {
     async function runFetch() {
-      const resp = await readCount(counterKey.HOMEPAGE_VIEWS);
+      const resp = await readCount(counterKey.SUCCESS_COUNT);
       const json = await resp.json();
       setPageCount(json.value);
     }
