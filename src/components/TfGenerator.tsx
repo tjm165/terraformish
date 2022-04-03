@@ -104,7 +104,7 @@ const TfGenerator = ({ setShouldRefetch }: any) => {
           <>{tfHeading}</>
         </div>
       </div>
-      <div style={{ display: "flex", width: "100vw" }}>
+      <div style={{ display: "flex", width: "100vw", paddingTop: "12px" }}>
         <div className="Full-width">
           <>{tfStateBody}</>
         </div>
