@@ -31,7 +31,7 @@ const TfGenerator = ({ setShouldRefetch }: any) => {
 
   const tfstateHeading = (
     <Typography color="white" variant="h4">
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
         <div
           style={{
             paddingLeft: "12px",
@@ -70,7 +70,7 @@ const TfGenerator = ({ setShouldRefetch }: any) => {
 
   const tfHeading = (
     <Typography color="white" variant="h4">
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
         <div
           style={{
             paddingLeft: "12px",
@@ -96,18 +96,22 @@ const TfGenerator = ({ setShouldRefetch }: any) => {
     <>
       <div style={{ display: "flex", width: "100vw" }}>
         <div className="Full-width">
-          <>
-            {tfstateHeading}
-            {tfStateBody}
-          </>
+          <>{tfstateHeading}</>
         </div>
 
         <div className="Full-width">
           {" "}
-          <>
-            {tfHeading}
-            {tfBody}
-          </>
+          <>{tfHeading}</>
+        </div>
+      </div>
+      <div style={{ display: "flex", width: "100vw" }}>
+        <div className="Full-width">
+          <>{tfStateBody}</>
+        </div>
+
+        <div className="Full-width">
+          {" "}
+          <>{tfBody}</>
         </div>
       </div>
     </>
