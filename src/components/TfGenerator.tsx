@@ -29,72 +29,84 @@ const TfGenerator = ({ setShouldRefetch }: any) => {
     setValue(samples[e.target.value]);
   };
 
+  const tfstateHeading = (
+    <Typography color="white" variant="h4">
+      <div style={{ display: "flex" }}>
+        <div
+          style={{
+            paddingLeft: "12px",
+            paddingRight: "24px",
+            height: "64px",
+          }}
+        >
+          .tfstate
+        </div>
+        <Box sx={{ minWidth: 120 }}>
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Examples</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={sample}
+              label="Examples"
+              onChange={handleSampleChange}
+            >
+              <MenuItem value={"lambda"}>AWS Lambda</MenuItem>
+              <MenuItem value={"s3"}>AWS S3</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
+      </div>
+    </Typography>
+  );
+
+  const tfStateBody = (
+    <textarea
+      className="terraformInput"
+      value={value}
+      onChange={handleValueChange}
+    />
+  );
+
+  const tfHeading = (
+    <Typography color="white" variant="h4">
+      <div style={{ display: "flex" }}>
+        <div
+          style={{
+            paddingLeft: "12px",
+            paddingRight: "24px",
+            height: "64px",
+          }}
+        >
+          .tf
+        </div>
+      </div>
+    </Typography>
+  );
+
+  const tfBody = (
+    <Tf
+      tfState={value}
+      similarity={valueSimiliarity}
+      setShouldRefetch={setShouldRefetch}
+    />
+  );
+
   return (
     <>
       <div style={{ display: "flex", width: "100vw" }}>
         <div className="Full-width">
           <>
-            <Typography color="white" variant="h4">
-              <div style={{ display: "flex" }}>
-                <div
-                  style={{
-                    paddingLeft: "12px",
-                    paddingRight: "24px",
-                    height: "64px",
-                  }}
-                >
-                  .tfstate
-                </div>
-                <Box sx={{ minWidth: 120 }}>
-                  <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">
-                      Examples
-                    </InputLabel>
-                    <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      value={sample}
-                      label="Examples"
-                      onChange={handleSampleChange}
-                    >
-                      <MenuItem value={"lambda"}>AWS Lambda</MenuItem>
-                      <MenuItem value={"s3"}>AWS S3</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Box>
-              </div>
-            </Typography>
-
-            <textarea
-              className="terraformInput"
-              value={value}
-              onChange={handleValueChange}
-            />
+            {tfstateHeading}
+            {tfStateBody}
           </>
         </div>
 
         <div className="Full-width">
           {" "}
           <>
-            <Typography color="white" variant="h4">
-              <div style={{ display: "flex" }}>
-                <div
-                  style={{
-                    paddingLeft: "12px",
-                    paddingRight: "24px",
-                    height: "64px",
-                  }}
-                >
-                  .tf
-                </div>
-              </div>
-            </Typography>
-
-            <Tf
-              tfState={value}
-              similarity={valueSimiliarity}
-              setShouldRefetch={setShouldRefetch}
-            />
+            {tfHeading}
+            {tfBody}
           </>
         </div>
       </div>
