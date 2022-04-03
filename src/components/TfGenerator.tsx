@@ -30,8 +30,8 @@ const TfGenerator = ({ setShouldRefetch }: any) => {
   };
 
   return (
-    <div>
-      <div style={{ display: "flex" }}>
+    <>
+      <div style={{ display: "flex", width: "100vw" }}>
         <div className="Full-width">
           <>
             <Typography color="white" variant="h4">
@@ -98,7 +98,7 @@ const TfGenerator = ({ setShouldRefetch }: any) => {
           </>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
