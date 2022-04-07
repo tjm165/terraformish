@@ -40,7 +40,7 @@ export default function Header({ shouldRefetch }: PropTypes) {
 
   return (
     <>
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1, flexDirection: "row" }}>
         <AppBar position="static" className="Primary-header">
           <Toolbar>
             <Typography
@@ -62,6 +62,8 @@ export default function Header({ shouldRefetch }: PropTypes) {
               )}
             </Typography>
             <Button
+              component="div"
+              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
               color="inherit"
               onClick={() =>
                 window.open("https://github.com/tjm165/terraformish")
