@@ -8,6 +8,7 @@ import { readCount, counterKey } from "../../functions/count";
 
 type TextFormattingPropTypes = {
   text: string;
+  style?: any;
 };
 
 const Code = ({ text }: TextFormattingPropTypes) => {
@@ -20,6 +21,10 @@ const Bold = ({ text }: TextFormattingPropTypes) => {
 
 const Bold2 = ({ text }: TextFormattingPropTypes) => {
   return <strong style={{ color: "#7af5be" }}>{text}</strong>;
+};
+
+const H2 = ({ style, text }: TextFormattingPropTypes) => {
+  return <h2 style={{ ...style, color: "#7af5be" }}>{text}</h2>;
 };
 
 type PropTypes = {
@@ -73,10 +78,11 @@ export default function Header({ shouldRefetch }: PropTypes) {
             </Button>
           </Toolbar>
           <Toolbar>
-            <Typography variant="body2">
-              The goal is to automate the tedious task of converting{" "}
-              <Code text={".tfstate"} /> to <Code text={".tf"} /> files.{" "}
-              <Bold2 text={"Not even Terraform itself supports this! "} />
+            <Typography variant="body2" style={{ marginBottom: "8px" }}>
+              <H2
+                style={{ marginBottom: "0px" }}
+                text={"Not even Terraform itself supports this! "}
+              />
               That shouldn't stop us from a tool with{" "}
               <Bold2 text={" partial "} />
               automation. This is <Bold text={`"Terraformish."`} />
